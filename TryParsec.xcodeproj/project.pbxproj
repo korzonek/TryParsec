@@ -44,12 +44,6 @@
 		1FB5C1C31C829B790063B2EF /* TestAssets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5C1C21C829B790063B2EF /* TestAssets */; };
 		1FB5C1C41C829B790063B2EF /* TestAssets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5C1C21C829B790063B2EF /* TestAssets */; };
 		1FB5C1C51C829B790063B2EF /* TestAssets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB5C1C21C829B790063B2EF /* TestAssets */; };
-		1FBC10791C72BB4700E002DF /* JSONPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4669E1C67F49A0089C8D9 /* JSONPerformanceTests.swift */; };
-		1FBC107A1C72BB4700E002DF /* StringAppendPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4669F1C67F49A0089C8D9 /* StringAppendPerformanceTests.swift */; };
-		1FBC107B1C72BB4700E002DF /* StringConversionPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA466A01C67F49A0089C8D9 /* StringConversionPerformanceTests.swift */; };
-		1FBC107C1C72BB4700E002DF /* StringRemovePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA466A11C67F49A0089C8D9 /* StringRemovePerformanceTests.swift */; };
-		1FBC107D1C72BB4700E002DF /* ConsPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4669D1C67F49A0089C8D9 /* ConsPerformanceTests.swift */; };
-		1FBC107E1C72BB4700E002DF /* UnconsPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA466A21C67F49A0089C8D9 /* UnconsPerformanceTests.swift */; };
 		1FBC107F1C72BB9600E002DF /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4207A1C41684B00F69CBA /* Curry.framework */; };
 		1FBE4C211C44199000545923 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBE4C201C44199000545923 /* ToJSON.swift */; };
 		1FC183011C6AC19B00FB1EC9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC182601C6AC19A00FB1EC9 /* main.swift */; };
@@ -67,7 +61,9 @@
 		1FF2461C1BDCBF0500570D8D /* DoubleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF2461B1BDCBF0500570D8D /* DoubleType.swift */; };
 		1FF4207B1C41684B00F69CBA /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4207A1C41684B00F69CBA /* Curry.framework */; };
 		1FF4207C1C41685300F69CBA /* TryParsec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE8E41F1B896E9100E1F2D0 /* TryParsec.framework */; };
+		48132D111C8D61E4002295FA /* ParserFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48132D101C8D61E4002295FA /* ParserFunc.swift */; };
 		481906FD1B8B48CF0046BD8A /* Prelude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481906FC1B8B48CF0046BD8A /* Prelude.swift */; };
+		482744631C8D5941001FE437 /* FuncParserPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482744621C8D5941001FE437 /* FuncParserPerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,7 +150,9 @@
 		1FF420741C41678D00F69CBA /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		1FF420751C41678D00F69CBA /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		1FF4207A1C41684B00F69CBA /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Checkouts/Curry/build/Debug/Curry.framework; sourceTree = "<group>"; };
+		48132D101C8D61E4002295FA /* ParserFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserFunc.swift; sourceTree = "<group>"; };
 		481906FC1B8B48CF0046BD8A /* Prelude.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prelude.swift; sourceTree = "<group>"; };
+		482744621C8D5941001FE437 /* FuncParserPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncParserPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +252,7 @@
 		1FA4669C1C67F49A0089C8D9 /* PerformanceTests */ = {
 			isa = PBXGroup;
 			children = (
+				482744621C8D5941001FE437 /* FuncParserPerformanceTests.swift */,
 				1FA4669E1C67F49A0089C8D9 /* JSONPerformanceTests.swift */,
 				1FA4669F1C67F49A0089C8D9 /* StringAppendPerformanceTests.swift */,
 				1FA466A01C67F49A0089C8D9 /* StringConversionPerformanceTests.swift */,
@@ -350,6 +349,7 @@
 			children = (
 				1FE8E4221B896E9100E1F2D0 /* Parser.h */,
 				1FE8E4391B896EA100E1F2D0 /* Parser.swift */,
+				48132D101C8D61E4002295FA /* ParserFunc.swift */,
 				1F110F051B8C165B00798BA0 /* Parser+Combinator.swift */,
 				1F4383341BBAFEE700FF330A /* Parser+UnicodeScalarView.swift */,
 				1F92984B1BC3534A00B68621 /* Reply.swift */,
@@ -592,14 +592,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA466B31C67F4B70089C8D9 /* TestHelper.swift in Sources */,
-				1FBC107B1C72BB4700E002DF /* StringConversionPerformanceTests.swift in Sources */,
+				482744631C8D5941001FE437 /* FuncParserPerformanceTests.swift in Sources */,
 				1FA466B81C67F4B70089C8D9 /* XCTestCase+Helper.swift in Sources */,
-				1FBC107C1C72BB4700E002DF /* StringRemovePerformanceTests.swift in Sources */,
-				1FBC107E1C72BB4700E002DF /* UnconsPerformanceTests.swift in Sources */,
 				1FA466BD1C67F4B70089C8D9 /* TestModel.swift in Sources */,
-				1FBC107A1C72BB4700E002DF /* StringAppendPerformanceTests.swift in Sources */,
-				1FBC107D1C72BB4700E002DF /* ConsPerformanceTests.swift in Sources */,
-				1FBC10791C72BB4700E002DF /* JSONPerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +626,7 @@
 				1FE03AF01BB7BEF300D16C55 /* Parser+XML.swift in Sources */,
 				1F9824B31C41372C00D68090 /* ParseError.swift in Sources */,
 				1F4383351BBAFEE700FF330A /* Parser+UnicodeScalarView.swift in Sources */,
+				48132D111C8D61E4002295FA /* ParserFunc.swift in Sources */,
 				1FE21A4B1C487F4300494E64 /* JSON.swift in Sources */,
 				1F110F0A1B8C18E100798BA0 /* Parser+Arithmetic.swift in Sources */,
 				1FE8E43A1B896EA100E1F2D0 /* Parser.swift in Sources */,

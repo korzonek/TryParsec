@@ -15,6 +15,8 @@ public struct Parser<In, Out>
     {
         self._parse = parse
     }
+
+    public typealias Function = In -> Reply<In, Out>
 }
 
 /// Runs a parser `p`.
