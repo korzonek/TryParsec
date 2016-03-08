@@ -39,7 +39,7 @@ class FuncParserPerformanceTests: XCTestCase
         }
     }
 
-    func test_parser_as_func_USV()
+    func test_parser_as_func_noGenericsForInput()
     {
         let p: Parser<USV, USV>.Function = many$$(satisfy$$ { $0 == "z" })
         let r = p(_testString.unicodeScalars)._done
@@ -51,7 +51,7 @@ class FuncParserPerformanceTests: XCTestCase
         }
     }
 
-    func test_parser_as_func_USV_memo()
+    func test_parser_as_func_noGenericsForInput_memo()
     {
         let p: Parser<USV, USV>.Function = many_memo(satisfy$$ { $0 == "z" })
         let r = p(_testString.unicodeScalars)._done
@@ -62,4 +62,19 @@ class FuncParserPerformanceTests: XCTestCase
             p(_testString.unicodeScalars)
         }
     }
+
+    // blazing fast!!!
+    // https://swiftjp.slack.com/files/norio_nomura/F0R358350/_________test_parser_as_func_usv_________________.diff
+    func test_parser_as_func_noGeneri cs()
+    {
+        let p: Parser<USV, USV>.Function = many$$$(satisfy$$ { $0 == "z" })
+        let r = p(_testString.unicodeScalars)._done
+        expect(r?.input) == ""
+        expect(r?.output.count) == _testStringCount
+
+        self.measureBlock {
+            let r = p(_testString.unicodeScalars)
+        }
+    }
+
 }

@@ -172,14 +172,31 @@ public func <^>?? <Out1, Out2>(f: Out1 -> Out2, p: Parser<String.UnicodeScalarVi
     }
 }
 
+/// No generics for input only.
 @inline(__always)
 public func many$$<Out, Outs: RangeReplaceableCollectionType where Outs.Generator.Element == Out>(p: Parser<String.UnicodeScalarView, Out>.Function) -> Parser<String.UnicodeScalarView, Outs>.Function
 {
     return many1$$(p) <|>?? { pure$$(Outs()) }
 }
 
+
+/// No generics for input only.
 @inline(__always)
 public func many1$$<Out, Outs: RangeReplaceableCollectionType where Outs.Generator.Element == Out>(p: Parser<String.UnicodeScalarView, Out>.Function) -> Parser<String.UnicodeScalarView, Outs>.Function
+{
+    return cons <^>?? p <*>?? { many$$(p) }
+}
+
+/// No generics.
+@inline(__always)
+public func many$$$(p: Parser<String.UnicodeScalarView, UnicodeScalar>.Function) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>.Function
+{
+    return many1$$(p) <|>?? { pure$$(String.UnicodeScalarView()) }
+}
+
+/// No generics.
+@inline(__always)
+public func many1$$$(p: Parser<String.UnicodeScalarView, UnicodeScalar>.Function) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>.Function
 {
     return cons <^>?? p <*>?? { many$$(p) }
 }
