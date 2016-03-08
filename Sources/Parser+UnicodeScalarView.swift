@@ -267,3 +267,26 @@ private func _number() -> Parser<String.UnicodeScalarView, Double>
         <*> _frac()
         <*> _exp()
 }
+
+// MARK: UnicodeScalarView-type-specific combinators
+
+public func many(p: Parser<String.UnicodeScalarView, UnicodeScalar>) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>
+{
+    return many1(p) <|> pure(String.UnicodeScalarView())
+}
+
+public func many1(p: Parser<String.UnicodeScalarView, UnicodeScalar>) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>
+{
+    return cons <^> p <*> many(p)
+}
+
+// TODO: check overload ambiguity
+//public func many(p: Parser<String.UnicodeScalarView, String.UnicodeScalarView>) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>
+//{
+//    return many1(p) <|> pure(String.UnicodeScalarView())
+//}
+//
+//public func many1(p: Parser<String.UnicodeScalarView, String.UnicodeScalarView>) -> Parser<String.UnicodeScalarView, String.UnicodeScalarView>
+//{
+//    return { xs1 in { xs2 in xs1 + xs2 } } <^> p <*> many(p)
+//}

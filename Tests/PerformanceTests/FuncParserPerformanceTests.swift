@@ -15,6 +15,7 @@ class FuncParserPerformanceTests: XCTestCase
         }
     }
 
+    // fast
     func test_parser_as_struct()
     {
         let p: Parser<USV, USV> = many(satisfy { $0 == "z" })
@@ -23,7 +24,7 @@ class FuncParserPerformanceTests: XCTestCase
         expect(r?.output.count) == _testStringCount
 
         self.measureBlock {
-            let r = parse(p, _testString.unicodeScalars)
+            parse(p, _testString.unicodeScalars)
         }
     }
 
@@ -35,7 +36,7 @@ class FuncParserPerformanceTests: XCTestCase
         expect(r?.output.count) == _testStringCount
 
         self.measureBlock {
-            let r = p(_testString.unicodeScalars)
+            p(_testString.unicodeScalars)
         }
     }
 
@@ -47,7 +48,7 @@ class FuncParserPerformanceTests: XCTestCase
         expect(r?.output.count) == _testStringCount
 
         self.measureBlock {
-            let r = p(_testString.unicodeScalars)
+            p(_testString.unicodeScalars)
         }
     }
 
@@ -63,9 +64,9 @@ class FuncParserPerformanceTests: XCTestCase
         }
     }
 
-    // blazing fast!!!
+    // fast
     // https://swiftjp.slack.com/files/norio_nomura/F0R358350/_________test_parser_as_func_usv_________________.diff
-    func test_parser_as_func_noGeneri cs()
+    func test_parser_as_func_noGenerics()
     {
         let p: Parser<USV, USV>.Function = many$$$(satisfy$$ { $0 == "z" })
         let r = p(_testString.unicodeScalars)._done
@@ -73,7 +74,7 @@ class FuncParserPerformanceTests: XCTestCase
         expect(r?.output.count) == _testStringCount
 
         self.measureBlock {
-            let r = p(_testString.unicodeScalars)
+            p(_testString.unicodeScalars)
         }
     }
 
